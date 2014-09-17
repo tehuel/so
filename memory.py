@@ -1,5 +1,5 @@
 class Memory:
-    # guarda una lista de instrucciones
+    # lee y escribe una lista de instrucciones
 
     def __init__(self):
         self.memoryCells = []
@@ -9,3 +9,4 @@ class Memory:
 
     def write(self, anInstruction):
         self.memoryCells.append ( anInstruction )
+        return len(self.memoryCells)

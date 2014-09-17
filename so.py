@@ -1,11 +1,15 @@
 from instruction import *
 from program import *
 from console import *
-from disk import *
-from kernel import *
 from memory import *
 from memorymanager import *
+from disk import *
+from kernel import *
 from pcb import *
+from cpu import *
+from scheduler import *
+from quantum import *
+from iodevice import *
 
 insa = Instruction("A")
 insb = Instruction("B")

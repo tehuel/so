@@ -1,5 +1,4 @@
 class MemoryManager:
-    # maneja una memoria
     # guarda todas las instrucciones de un programa, devolviendo posicion inicial
     # lee una instruccion en una posicion determinada
 
@@ -10,18 +9,12 @@ class MemoryManager:
     def loadProgram(self, aProgram):
         # agarra lista de instrucciones del programa y los guarda en memoria
         # devuelve posicion inicial en memoria
-        
         self.initialPosition = self.lastPosition
-        
         for instruction in aProgram.instructions:
-            self.memory.write( instruction )
-            self.lastPosition += 1
-            print ( self.initialPosition )
-            return ( self.initialPosition )
+            self.lastPosition = self.memory.write( instruction )
+        return self.initialPosition
 
     def getInstruction(self, aCellNumber):
         # lee una posicion de memoria
-
         self.foundInstruction = self.memory.read( aCellNumber )
-
         return ( self.foundInstruction )
