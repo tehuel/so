@@ -4,4 +4,4 @@ class Instruction:
         self.text = aText
 
     def execute(self, console):
-        console.addLine(self.text)
+        console.say(self.text)

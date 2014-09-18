@@ -3,7 +3,7 @@ class Console:
 
     def __init__(self):
         self.lines = []
-
-    def addLine(self, aLine):
+        
+    def say(self, aLine):
         self.lines.append(aLine)
         print (aLine)
