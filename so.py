@@ -1,11 +1,11 @@
 from instruction import *
 from program import *
 from console import *
+from disk import *
 from memory import *
 from memorymanager import *
-from disk import *
-from kernel import *
 from pcb import *
+from kernel import *
 from cpu import *
 from scheduler import *
 from quantum import *
@@ -33,7 +33,7 @@ hdd.addProgram( prg2 )
 c = Console()
 m = Memory()
 mm = MemoryManager ( m )
-k = Kernel( c, hdd )
 
-mm.loadProgram( prg1 )
-mm.loadProgram( prg2 )
+k = Kernel( c, hdd, mm )
+
+k.execute("PRG1")
