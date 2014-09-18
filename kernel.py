@@ -1,3 +1,5 @@
+import pcb
+
 class Kernel:
     # crea procesos
     lastPID = 0
@@ -16,5 +18,5 @@ class Kernel:
         program = self.disk.getProgram( aProgramName )
         base = self.mm.loadProgram( program )
         # todavia no se crear pcb
-        #pcb = PCB()
+        aPCB = pcb.PCB(base, self.generatePID() )
         
