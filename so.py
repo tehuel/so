@@ -33,7 +33,8 @@ hdd.addProgram( prg2 )
 c = Console()
 m = Memory()
 mm = MemoryManager ( m )
+qu = Quantum()
 
-k = Kernel( c, hdd, mm )
+k = Kernel( c, hdd, mm, qu )
 
 k.execute("PRG1")
