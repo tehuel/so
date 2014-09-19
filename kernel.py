@@ -10,6 +10,8 @@ class Kernel:
         self.mm = aMemoryManager
         self.queue = aQuantum
         
+        self.console.toLog( "Kernel Initialized" )
+        
     def generatePID(self):
         self.lastPID += 1
         return self.lastPID
@@ -19,4 +21,5 @@ class Kernel:
         program = self.disk.getProgram( aProgramName )
         base = self.mm.loadProgram( program )
         aPCB = pcb.PCB(base, self.generatePID() )
+
         self.queue.add( aPCB )
