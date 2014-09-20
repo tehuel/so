@@ -8,7 +8,3 @@ class Console:
     def toConsole(self, aLine):
         self.lines.append( aLine )
         print (aLine)
-        
-    def toLog(self, aLogLine, aLogLevel = 0):
-        self.log.append ( aLogLine )
-        print "LOG: ", aLogLine

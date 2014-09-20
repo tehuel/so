@@ -10,8 +10,6 @@ class Kernel:
         self.mm = aMemoryManager
         self.scheduler = aScheduler
         
-        self.console.toLog( "Kernel Initialized" )
-        
     def generatePID(self):
         self.lastPID += 1
         return self.lastPID
