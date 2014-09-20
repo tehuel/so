@@ -1,3 +1,7 @@
 class Scheduler:
+    
     def __init__(self):
-        print "TODO"
+        self.queue = []
+
+    def add (self, aPCB):
+        self.queue.append(aPCB)

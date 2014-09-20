@@ -8,7 +8,6 @@ from pcb import *
 from kernel import *
 from cpu import *
 from scheduler import *
-from quantum import *
 from iodevice import *
 
 insa = Instruction("A")
@@ -33,8 +32,8 @@ hdd.addProgram( prg2 )
 c = Console()
 m = Memory()
 mm = MemoryManager ( m )
-qu = Quantum()
+sh = Scheduler()
 
-k = Kernel( c, hdd, mm, qu )
+k = Kernel( c, hdd, mm, sh )
 
 k.execute("PRG1")

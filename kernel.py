@@ -4,11 +4,11 @@ class Kernel:
     # crea procesos
     lastPID = 0
 
-    def __init__(self, aConsole, aDisk, aMemoryManager, aQuantum):
+    def __init__(self, aConsole, aDisk, aMemoryManager, aScheduler):
         self.console = aConsole
         self.disk = aDisk
         self.mm = aMemoryManager
-        self.queue = aQuantum
+        self.scheduler = aScheduler
         
         self.console.toLog( "Kernel Initialized" )
         
@@ -22,4 +22,4 @@ class Kernel:
         base = self.mm.loadProgram( program )
         aPCB = pcb.PCB(base, self.generatePID() )
 
-        self.queue.add( aPCB )
+        self.scheduler.add( aPCB )
