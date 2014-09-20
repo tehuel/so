@@ -6,3 +6,9 @@ class PCB:
         self.base = base
         self.state = "READY"
         self.pc = 0
+
+    def updateState( self, newState ):
+        self.state = newState
+        
+    def updatePC (self, newPC ):
+        self.pc = newPC

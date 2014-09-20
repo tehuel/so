@@ -1,10 +1,9 @@
 import pcb
 
 class Kernel:
-    # crea procesos
-    lastPID = 0
 
     def __init__(self, aConsole, aDisk, aMemoryManager, aScheduler):
+        self.lastPID = 0
         self.console = aConsole
         self.disk = aDisk
         self.mm = aMemoryManager

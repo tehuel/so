@@ -5,3 +5,6 @@ class Scheduler:
 
     def add (self, aPCB):
         self.queue.append(aPCB)
+        
+    def get (self):
+        return self.queue.remove()
