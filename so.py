@@ -6,6 +6,7 @@ from memory import *
 from memorymanager import *
 from pcb import *
 from kernel import *
+from clock import *
 from cpu import *
 from scheduler import *
 from iodevice import *
