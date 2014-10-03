@@ -2,11 +2,11 @@ import pcb
 
 class Kernel:
 
-    def __init__(self, aConsole, aDisk, aMemoryManager, aScheduler):
+    def __init__(self, aConsole, aDisk, aMMU, aScheduler):
         self.lastPID = 0
         self.console = aConsole
         self.disk = aDisk
-        self.mm = aMemoryManager
+        self.mmu = aMMU
         self.scheduler = aScheduler
         
     def generatePID(self):

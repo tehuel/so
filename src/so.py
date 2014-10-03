@@ -32,9 +32,9 @@ hdd.addProgram( prg2 )
 
 c = Console()
 m = Memory()
-mm = MemoryManager ( m )
+mmu = MMU ( m )
 sh = Scheduler()
 
-k = Kernel( c, hdd, mm, sh )
+k = Kernel( c, hdd, mmu, sh )
 
 k.execute("PRG1")

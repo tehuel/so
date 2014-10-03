@@ -1,4 +1,4 @@
-class MemoryManager:
+class MMU:
     # guarda todas las instrucciones de un programa, devolviendo posicion inicial
     # lee una instruccion en una posicion determinada
 
