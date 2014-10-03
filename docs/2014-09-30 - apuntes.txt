@@ -1,0 +1,63 @@
+pcb table: lista de pcb dentro del kernel
+
+cpu si fetch es ultima instruccion avisa al kernel con interupcion end:
+pc == ultima instruccion
+
+    pasos interrupcion end:
+    
+    
+        1- pcb state terminated
+        2- memory.free (pcb)
+        3- pcbt.remove (table)
+        4- newPCB = scheduler.next (queueready)
+        5- cpu.pcb = newPCB
+        
+cpu tiene nuevo pcb, fetch y ejecuta siguiente
+
+    pasos instruccion timeout:
+        1- mover pcb cpu ready
+        2 -pcb state  = ready
+        3- newpcb = next
+        4- cpu.pcb = next
+        5- 
+        
+    pasos instruccion io 
+    
+    pasos instruccion new
+    
+    
+    
+state, template, strategy
+
+clase interrupcion, evento inteligente que se autoejecuta, autocontenido
+    objetos con comportamiento, no objetos tontos
+    no desacoplado tipo con rutina
+    
+
+modelos anemicos
+
+lista de rutinas, itera por toda la lista, y pregunta quien procesa el evento
+
+asociacion tipo de evento -> rutina, no pregunto, hago busqueda en diccionario
+interrupcion descriptiva de lo que esta pasando.
+
+handler de interrupciones
+
+lista de rutinas. command, strategy. 
+
+desde la cpu, cuando quiero informar, cpu conoce handler y le indica la interrupcion
+
+ciclo de reloj:
+    (en modo usuario)
+    - fetch de instruccion (memoria, etc)
+    - reportar irq
+    (en modo kernel)
+    - digo al kerner que maneje interrupciones
+    
+    
+    
+IMPLEMENTAR: charla de cpu kernel interrupciones y rutinas de interrupciones.
+muerte, timeout, io, new
+
+investigacion: python strategy
+http://stackoverflow.com/questions/963965/how-is-this-strategy-pattern-written-in-python-the-sample-in-wikipedia

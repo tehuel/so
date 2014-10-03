@@ -1,0 +1,56 @@
+# Manejo de Memoria
+
+Paginacion
+
+mp y registros son unico medio que cpu accede directamente
+
+los programas se traen desde la memoria para ser ejecutados
+
+necesaria proteccion de memoria
+
+registros accedidos en un ciclo de cpu
+
+memoria toma varios ciclos
+
+cache [cash] es punto intermedio en tiempo de acceso
+
+
+# vinculacion (binding) de instrucciones y datos
+
+    - vinculacion en tiempo de compilacion: codigo absoluto
+    
+    - vinculacion en tiempo de carga: se genera con base y desplazamiento. es realocable.
+    
+    - tiempo de ejecucion: el proceso puede moverse durante la ejecucion.
+    
+Espacio de direccionamiento logico vs fisico
+
+cpu (espacio logico) -> mmu -> mp (espacio fisico)
+
+#enlace dinamico
+
+stub
+
+el stub se reemplaza por la direccion de la libreria
+
+# Swapping
+
+proceso sacado de memoria y llevado a almacenamietno secundario
+
+secundario: discos rapidos y suficientemente grandes
+
+roll out roll in: los de menor prioridad son desalojados
+
+la mayor parte del swap es transferencia
+
+# paginacion
+
+espacio de direccion = [p]aginas (2^n) + [d]esplazamiento (2^m)
+
+
+
+3075 =  110000000011 b
+
+00011 | 0000000011
+
+3 |
