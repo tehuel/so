@@ -5,6 +5,6 @@ class Console:
         self.lines = []
         self.log = []
         
-    def toConsole(self, aLine):
+    def out(self, aLine):
         self.lines.append( aLine )
         print (aLine)

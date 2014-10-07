@@ -1,12 +1,32 @@
-import pcb
-
 class CPU:
     
     def __init__(self):
-        self.currentPCB = False
+        # inicializacion de cpu
+        self.pcb = None
+    
+    def setKernel(self, aKernel):
+        self.kernel = aKernel
+    
+    def fetch(self):
+        #levanto excepcion de start
+        print("cpu: fetch", self)
         
-    def loadPCB(self, aPCB):
-        self.currentPCB = aPCB
+        self.kernel.irq.interruptionStart()
         
-    def isIdle(self):
-        return ( not isinstance(self.currentPCB, pcb.PCB) )
+        self.execute()
+        
+        
+    def execute(self):
+        # TODO: write code...
+        print("cpu: execute", self)
+        nextInstruction = self.kernel.mmu.getInstruction( self.pcb.base + self.pcb.pc )
+        
+        nextInstruction.execute(self.kernel.console)
+        
+    def getContext(self):
+        # TODO: write code...
+        print("cpu: getContext", self)
+        
+    def setContext(self, aPCB):
+        print("cpu: setContext", self)
+        self.pcb = aPCB

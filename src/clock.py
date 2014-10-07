@@ -1,14 +1,17 @@
 class Clock:
-    
-    def __init__(self, aCPU):
-        self.cpu = aCPU
+        
+    def setKernel(self, aKernel):
+        self.kernel = aKernel
         
     def tick(self):
-        self.cpu.fetch
-
-        #proceso interrupciones
+        # indico a cpu que arranque
+        #proceso interrupciones y cambios de contexto
+        print("clock: tick start", self)
         
-    def start(self):
-        while ( True ):
-            time.sleep(1)
-            self.tick
+        self.kernel.cpu.fetch()
+
+    def run(self):
+        # TODO: write code...
+        #sleep(1)
+        #self.tick()
+        pass

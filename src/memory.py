@@ -5,7 +5,7 @@ class Memory:
         self.memoryCells = []
 
     def read(self, aCellNumber):
-        self.memoryCells[ aCellNumber ]
+        return self.memoryCells[ aCellNumber ]
 
     def write(self, anInstruction):
         self.memoryCells.append ( anInstruction )
