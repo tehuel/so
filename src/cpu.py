@@ -11,7 +11,8 @@ class CPU:
         #levanto excepcion de start
         print("cpu: fetch", self)
         
-        self.kernel.irq.interruptionStart()
+        if (self.pcb == None):
+            self.kernel.irq.interruptionStart()
         
         self.execute()
         
