@@ -4,13 +4,16 @@ class IRQ:
         # inicializo listado de interrupciones
         pass
     
-    def setKernel(self, aKernel):
-        self.kernel = aKernel
+    def setCPU(self, aCPU):
+        self.cpu = aCPU
+    
+    def setScheduler(self, aScheduler):
+        self.scheduler = aScheduler
     
     def interruptionStart(self):
         # interrupcion inicial, le doy un pcb al cpu
         print("irq: interruptionStart", self)
-        self.kernel.cpu.setContext( self.kernel.scheduler.get() )
+        self.cpu.setContext( self.scheduler.get() )
 
     def interruptionEnd(self):
         # TODO: write code...

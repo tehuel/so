@@ -4,15 +4,15 @@ class CPU:
         # inicializacion de cpu
         self.pcb = None
     
-    def setKernel(self, aKernel):
-        self.kernel = aKernel
+    def setIRQ(self, aIRQ):
+        self.irq = aIRQ
     
     def fetch(self):
         #levanto excepcion de start
         print("cpu: fetch", self)
         
         if (self.pcb == None):
-            self.kernel.irq.interruptionStart()
+            self.irq.interruptionStart()
         
         self.execute()
         
@@ -20,9 +20,8 @@ class CPU:
     def execute(self):
         # TODO: write code...
         print("cpu: execute", self)
-        nextInstruction = self.kernel.mmu.getInstruction( self.pcb.base + self.pcb.pc )
-        
-        nextInstruction.execute(self.kernel.console)
+        #nextInstruction = self.kernel.mmu.getInstruction( self.pcb.base + self.pcb.pc )
+        #nextInstruction.execute(self.kernel.console)
         
     def getContext(self):
         # TODO: write code...

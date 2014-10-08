@@ -2,20 +2,18 @@ import pcb
 
 class Kernel:
 
-    def __init__(self, aDisk, aMMU, aCPU, aIRQ, aScheduler, aClock, aConsole):
+    def __init__(self, aDeviceManager, aIRQ, aScheduler, aConsole):
         self.lastPID = 0
-        self.disk = aDisk
-        self.mmu = aMMU
-        self.cpu = aCPU
+        self.devicemanager = aDeviceManager
         self.irq = aIRQ
         self.scheduler = aScheduler
-        self.clock = aClock
         self.console = aConsole
         
         #initialize
-        self.irq.setKernel(self)
-        self.clock.setKernel(self)
-        self.cpu.setKernel(self)
+        self.devicemanager.clock.setCPU(self.devicemanager.cpu)
+        self.devicemanager.cpu.setIRQ(self.irq)
+        self.irq.setCPU(self.devicemanager.cpu)
+        self.irq.setScheduler(self.scheduler)
         
     def generatePID(self):
         self.lastPID += 1
@@ -23,8 +21,8 @@ class Kernel:
 
     def execute(self, aProgramName):
         #obtengo el programa del disco, lo paso a memoria, y creo el pcb correspondiente
-        program = self.disk.getProgram( aProgramName )
-        base = self.mmu.loadProgram( program )
+        program = self.devicemanager.disk.getProgram( aProgramName )
+        base = self.devicemanager.mmu.loadProgram( program )
         size = len(program.instructions)
         aPCB = pcb.PCB(base, size, self.generatePID() )
         

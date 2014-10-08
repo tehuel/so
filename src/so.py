@@ -1,16 +1,11 @@
 from instruction import *
 from program import *
 from console import *
-from disk import *
-from memory import *
-from mmu import *
 from kernel import *
-from clock import *
-from cpu import *
 from irq import *
 from scheduler import *
-from iodevice import *
 from pcb import *
+from devicemanager import *
 
 insa = Instruction("A")
 insb = Instruction("B")
@@ -28,25 +23,18 @@ prg2.addInstruction( insb )
 prg2.addInstruction( insb )
 prg2.addInstruction( insb )
 
-hdd = Disk()
-hdd.addProgram( prg1 )
-hdd.addProgram( prg2 )
+dm = DeviceManager()
+dm.disk.addProgram(prg1)
+dm.disk.addProgram(prg2)
 
 console = Console()
-
-mem = Memory()
-mmu = MMU(mem)
-
-cpu = CPU()
 
 sch = Scheduler()
 
 irq = IRQ()
 
-clock = Clock()
-
-k = Kernel( hdd, mmu, cpu, irq, sch, clock, console )
+k = Kernel( dm, irq, sch, console )
 
 k.execute("PRG1")
 
-clock.tick()
+dm.clock.tick()
