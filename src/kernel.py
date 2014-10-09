@@ -1,3 +1,4 @@
+import logging
 import pcb
 
 class Kernel:
@@ -10,16 +11,20 @@ class Kernel:
         self.console = aConsole
         
         #initialize
+        logging.debug( "kernel.init" )
         self.devicemanager.cpu.setIRQ(self.irq)
         self.irq.setCPU(self.devicemanager.cpu)
         self.irq.setScheduler(self.scheduler)
         
     def generatePID(self):
         self.lastPID += 1
+        logging.debug( "kernel.generatePID()" )
         return self.lastPID
 
     def execute(self, aProgramName):
         #obtengo el programa del disco, lo paso a memoria, y creo el pcb correspondiente
+        
+        logging.debug( "kernel.execute()" )
         program = self.devicemanager.disk.getProgram( aProgramName )
         base = self.devicemanager.mmu.loadProgram( program )
         size = len(program.instructions)

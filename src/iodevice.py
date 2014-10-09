@@ -1,3 +1,5 @@
+import logging
+
 class IODevice:
     
     def __init__(self):

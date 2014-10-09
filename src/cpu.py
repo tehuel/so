@@ -1,15 +1,19 @@
+import logging
+
 class CPU:
     
     def __init__(self):
         # inicializacion de cpu
+        logging.debug( "cpu.init" )
         self.pcb = None
     
     def setIRQ(self, aIRQ):
+        logging.debug( "cpu.setIRQ()" )
         self.irq = aIRQ
     
     def fetch(self):
         #levanto excepcion de start
-        print("cpu: fetch", self)
+        logging.debug( "cpu.fetch()" )
         
         if (self.pcb == None):
             self.irq.interruptionStart()
@@ -19,14 +23,14 @@ class CPU:
         
     def execute(self):
         # TODO: write code...
-        print("cpu: execute", self)
+        logging.debug( "cpu.execute()" )
         #nextInstruction = self.kernel.mmu.getInstruction( self.pcb.base + self.pcb.pc )
         #nextInstruction.execute(self.kernel.console)
         
     def getContext(self):
         # TODO: write code...
-        print("cpu: getContext", self)
+        logging.debug( "cpu.getContext()" )
         
     def setContext(self, aPCB):
-        print("cpu: setContext", self)
+        logging.debug( "cpu.setContext()" )
         self.pcb = aPCB

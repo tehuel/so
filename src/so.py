@@ -1,3 +1,4 @@
+import logging
 from instruction import *
 from program import *
 from console import *

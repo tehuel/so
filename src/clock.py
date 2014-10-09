@@ -1,3 +1,5 @@
+import logging
+
 class Clock:
         
     def __init__(self, aCPU):
@@ -6,7 +8,7 @@ class Clock:
     def tick(self):
         # indico a cpu que arranque
         #proceso interrupciones y cambios de contexto
-        print("clock: tick start", self)
+        logging.debug( "clock.tick()" )
         
         self.cpu.fetch()
 
@@ -14,4 +16,5 @@ class Clock:
         # TODO: write code...
         #sleep(1)
         #self.tick()
+        logging.debug( "clock.run()" )
         pass
