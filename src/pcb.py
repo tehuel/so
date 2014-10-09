@@ -7,7 +7,7 @@ class PCB:
         self.size = size
         self.state = "READY"
         self.pc = 0
-        print("pcb created", self.pid)
+        print(self, "pcb created. pid: ", self.pid)
 
     def updateState( self, newState ):
         self.state = newState

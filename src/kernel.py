@@ -10,7 +10,6 @@ class Kernel:
         self.console = aConsole
         
         #initialize
-        self.devicemanager.clock.setCPU(self.devicemanager.cpu)
         self.devicemanager.cpu.setIRQ(self.irq)
         self.irq.setCPU(self.devicemanager.cpu)
         self.irq.setScheduler(self.scheduler)

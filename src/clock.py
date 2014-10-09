@@ -1,6 +1,6 @@
 class Clock:
         
-    def setCPU(self, aCPU):
+    def __init__(self, aCPU):
         self.cpu = aCPU
         
     def tick(self):
