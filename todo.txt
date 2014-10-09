@@ -1,0 +1,6 @@
+manejar cambios de pc en pcb
+
+simplificar cpu
+
+interrupciones por configuracion
+    no metodos sino rutinas configurables
