@@ -8,7 +8,7 @@ class CPU:
         # inicializacion de cpu
         logger.debug( "init" )
         self.mmu = aMemoryManager
-        self.pcb = None
+        self.context = None
         self.irq = None
     
     def setIRQ(self, aIRQ):
@@ -24,7 +24,7 @@ class CPU:
         else:
         
             #si la instruccion se paso del tamanio del programa
-            if (self.pcb.pc >= self.pcb.size ):
+            if (self.context.pc >= self.context.size ):
                 logger.info( "interrupcion end" )
                 self.irq.interruptionEnd()
             else:
@@ -42,12 +42,12 @@ class CPU:
                     #actualizo pcb
                 
                 #debug: avanzo pcb de todas formas
-                self.pcb.updatePC()
+                self.context.updatePC()
                 
         
     def getContext(self):
         logger.debug( "getContext()" )
         
     def setContext(self, aPCB):
-        self.pcb = aPCB
+        self.context = aPCB
         logger.debug( "setContext( PID %s )", self.pcb.pid )
