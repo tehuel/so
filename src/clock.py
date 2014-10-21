@@ -1,20 +1,22 @@
+import time
+
 import logging
+
+logger = logging.getLogger(__name__)
 
 class Clock:
         
     def __init__(self, aCPU):
+        self.counter = 1
         self.cpu = aCPU
         
     def tick(self):
-        # indico a cpu que arranque
-        #proceso interrupciones y cambios de contexto
-        logging.debug( "clock.tick()" )
-        
+        logger.debug( "tick( %s )", self.counter )
+        self.counter = self.counter + 1
         self.cpu.fetch()
 
     def run(self):
-        # TODO: write code...
-        #sleep(1)
-        #self.tick()
-        logging.debug( "clock.run()" )
-        pass
+        logger.debug( "clock started" )
+        while ( True ):
+            time.sleep(3)
+            self.tick()

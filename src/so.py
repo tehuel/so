@@ -1,4 +1,7 @@
 import logging
+
+logging.basicConfig(level=logging.INFO)
+
 from instruction import *
 from program import *
 from console import *
@@ -9,7 +12,7 @@ from pcb import *
 from devicemanager import *
 
 insa = Instruction("A")
-insb = Instruction("B")
+insb = Instruction("B", True)
 insc = Instruction("C")
 
 prg1 = Program( "PRG1" )
@@ -23,6 +26,7 @@ prg2 = Program( "PRG2" )
 prg2.addInstruction( insb )
 prg2.addInstruction( insb )
 prg2.addInstruction( insb )
+prg2.addInstruction( insc )
 
 dm = DeviceManager()
 dm.disk.addProgram(prg1)
@@ -37,5 +41,17 @@ irq = IRQ()
 k = Kernel( dm, irq, sch, console )
 
 k.execute("PRG1")
+k.execute("PRG2")
+k.execute("PRG1")
 
+#dm.clock.run()
+
+dm.clock.tick()
+dm.clock.tick()
+dm.clock.tick()
+dm.clock.tick()
+dm.clock.tick()
+dm.clock.tick()
+dm.clock.tick()
+dm.clock.tick()
 dm.clock.tick()

@@ -1,10 +1,13 @@
 import logging
 
+logger = logging.getLogger(__name__)
+
 class IRQ:
     
     def __init__(self):
-        # inicializo listado de interrupciones
-        pass
+        self.cpu = None
+        self.scheduler = None
+        self.queue = []
     
     def setCPU(self, aCPU):
         self.cpu = aCPU
@@ -14,17 +17,24 @@ class IRQ:
     
     def interruptionStart(self):
         # interrupcion inicial, le doy un pcb al cpu
-        logging.debug( "irq.interruptionStart()" )
+        logger.debug( "interruptionStart()" )
         self.cpu.setContext( self.scheduler.get() )
 
     def interruptionEnd(self):
+        logger.debug( "interruptionEnd()" )
+        self.changeContext()
+
+    def interruptionIO(self):
         # TODO: write code...
-        logging.debug( "irq.interruptionEnd()" )
+        logger.debug( "interruptionIO()" )
 
     def interruptionTimeout(self):
         # TODO: write code...
-        logging.debug( "irq.interruptionTimeout()" )
+        logger.debug( "interruptionTimeout()" )
+        self.changeContext()
 
     def changeContext(self):
         # cambio de contexto. saco pcb de cpu y pongo siguiente pcb en cpu
-        logging.debug( "irq.changeContext()" )
+        logger.debug( "changeContext()" )
+        self.cpu.setContext( self.scheduler.get() )
+        

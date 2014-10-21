@@ -4,3 +4,8 @@ simplificar cpu
 
 interrupciones por configuracion
     no metodos sino rutinas configurables
+
+
+charla entre cpu, irq, y clock
+
+todas las interupciones

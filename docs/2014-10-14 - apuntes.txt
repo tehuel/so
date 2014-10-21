@@ -1,0 +1,14 @@
+python logging
+
+http://victorlin.me/posts/2012/08/26/good-logging-practice-in-python
+
+python duck typing
+
+http://www.voidspace.org.uk/python/articles/duck_typing.shtml
+
+
+interaccion de clock
+
+cpu caja negra
+
+cpu - irq distintas interrupciones

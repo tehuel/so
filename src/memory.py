@@ -9,3 +9,4 @@ class Memory:
 
     def write(self, anInstruction):
         self.memoryCells.append ( anInstruction )
+        return len( self.memoryCells )
