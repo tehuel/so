@@ -1,3 +1,7 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
 class Memory:
     # guarda una lista de instrucciones
 
@@ -5,8 +9,9 @@ class Memory:
         self.memoryCells = []
 
     def read(self, aCellNumber):
+        logger.debug("read [%s]: %s", aCellNumber, self.memoryCells[ aCellNumber ].text)
         return self.memoryCells[ aCellNumber ]
 
-    def write(self, anInstruction):
-        self.memoryCells.append ( anInstruction )
-        return len( self.memoryCells )
+    def write(self, aCellNumber, anInstruction):
+        self.memoryCells.insert(aCellNumber, anInstruction)
+        logger.debug("written [%s]: %s", aCellNumber, anInstruction.text)

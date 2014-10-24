@@ -14,15 +14,16 @@ class MMU:
         # agarra lista de instrucciones del programa y los guarda en memoria
         # devuelve posicion inicial en memoria
         self.initialPosition = self.lastPosition
-        logger.debug( "Initial Position( %s )", self.initialPosition )
+        
+        logger.info( "Load program %s ", aProgram.name )
         
         for instruction in aProgram.instructions:
-            self.lastPosition = self.memory.write( instruction )
-            logger.debug( "Memory Written( %s: \'%s\' )", self.lastPosition, instruction.text )
+            logger.debug( "write to memory( %s )", self.lastPosition)
+            self.memory.write( self.lastPosition, instruction )
+            self.lastPosition += 1
         return self.initialPosition
 
     def getInstruction(self, aCellNumber):
         # lee una posicion de memoria
         self.foundInstruction = self.memory.read( aCellNumber )
-        logger.debug( "FoundInstruction( %s: \'%s\' )", aCellNumber, self.foundInstruction.text )
         return ( self.foundInstruction )
