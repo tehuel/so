@@ -1,0 +1,5 @@
+Strategy Desgin Patter en Python
+
+http://codereview.stackexchange.com/questions/20718/the-strategy-design-pattern-for-python-in-a-more-pythonic-way
+http://ideone.com/nz5gdw
+

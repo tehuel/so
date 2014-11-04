@@ -16,7 +16,7 @@ class DeviceManager:
         # inicializacion de todos los dispositivos
         logger.debug( "init" )
         self.disk = Disk()
-        self.memory = Memory()
+        self.memory = Memory(64)
         self.mmu = MMU( self.memory )
         self.cpu = CPU( self.mmu )
         self.clock = Clock( self.cpu )
