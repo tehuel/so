@@ -1,0 +1,34 @@
+Strategy Desgin Pattern en Python
+http://codereview.stackexchange.com/questions/20718/the-strategy-design-pattern-for-python-in-a-more-pythonic-way
+http://ideone.com/nz5gdw
+
+Event Systems in python
+http://stackoverflow.com/questions/1092531/event-system-in-python/2022629#2022629
+http://stackoverflow.com/questions/1904351/python-observer-pattern-examples-tips
+http://stackoverflow.com/questions/17274045/callbacks-and-events-in-python?rq=1
+
+
+
+
+double dispatch
+
+diccionario de rutinas
+
+static
+
+rutina.kill
+
+
+
+#filesystem
+
+    directorio raiz
+    puede contener subdirectorios y archivos
+    subdirectorios pueden contener subdirectorios y archivos
+    acceder con filepath
+    conoce lista de directory
+        directory puede tener lista de directories
+        directory tiene name
+        directory tiene lista de files 
+            cada file tiene name
+            cada file tiene lista de bits (lista de bloque de datos) (lista de bloques dentro del disco)
