@@ -1,16 +1,15 @@
+= TODO
+
 manejar cambios de pc en pcb
     aumentar pcb por cada instruccion ejecutada
+    controlar end
+    controlar timeout (cuando corresponda scheduler)
 
 simplificar cpu
 
 cpu y clock como thread
 
-interrupciones por configuracion
-    no metodos sino rutinas configurables
-
 charla entre cpu, irq, y clock
-
-impementar todas las interupciones
 
 asignacion de memoria
     asignacion continua con bloques
@@ -23,7 +22,16 @@ filesystem
 
 dispositivos de entrada y salida como thread independientes
 
-= Opcionales
+=== Opcionales
 
 interfaz grafica
+
+= IN PROGRESS
+
+interrupciones por configuracion
+    no metodos sino rutinas configurables
+
+impementar todas las interupciones
+
+= DONE
 
