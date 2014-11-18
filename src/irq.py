@@ -1,18 +1,7 @@
+import interruption
 import logging
 
 logger = logging.getLogger(__name__)
-
-def InterruptionStart():
-    #print("Interruption Start")
-    pass
-        
-class Interruption:
-    def __init__(self, anInterruptionRoutine):
-        self.routine = anInterruptionRoutine
-    
-    def execute(self):
-        self.routine
-        
 
 class IRQ:
     
@@ -31,4 +20,4 @@ class IRQ:
         self.queue.insert( 0, anInterruption )
         
     def processInterruption(self):
-        self.queue.pop().execute()
+        self.queue.pop().run( self.scheduler, self.cpu )
