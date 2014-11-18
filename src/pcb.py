@@ -18,7 +18,7 @@ class PCB:
         logger.debug( "pcb.updateState())" )
         self.state = newState
         
-    def getNext(self):
+    def getNextInstruction(self):
         #siguiente instruccion a ejecutar
         return self.base + self.pc
         

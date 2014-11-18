@@ -34,7 +34,7 @@ class CPU:
             else:
                     
                 # obtengo la instruccion
-                i = self.mmu.getInstruction( self.context.getNext() )
+                i = self.mmu.getInstruction( self.context.getNextInstruction() )
                     
                 #si la instruccion es de entrada salida
                 if ( i.isIO() ):
