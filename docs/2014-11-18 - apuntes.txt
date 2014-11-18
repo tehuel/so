@@ -1,0 +1,39 @@
+= filesystem
+
+creo disco 
+
+creo kernel
+
+device manager / injecto disco
+
+corre(ruta de archivo) - shutdown
+
+filesystem > root folder > estructura ciclicar
+    parent, childrens, files, data
+    
+disco:
+    bloques
+        bloque data
+            datos del programa
+            (idealmente bits)
+        informacion de bloque folder:
+            nombre
+            parent: puntero a padre, int
+            child: lista de punteros a folders hijos
+            files: lista de punteros a files hijos
+        informacion de bloque file:
+            nombre
+            lista de punteros a sectores data
+            tamaño
+
+en startup crea filesystem en disco, y construye estructura de directorios
+
+kernel charla con filesystem > filesystem charla con disco
+
+pido path, se busca file, se obtienen datos de sectores de disco, se concatenan, se devuelven, se cargan a memoria
+
+frutilla: se guardan y cargan bits, que luego se pasan a instrucciones.
+
+serializar al disco el filesystem: json, xml, guardar como archivo en disco. para pasar de memoria/kernel a disco.
+
+construir filesystem en kernel a partir de disco. sin informacion extra. a partir de data del disco.
