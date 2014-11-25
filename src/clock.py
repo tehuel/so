@@ -14,6 +14,9 @@ class Clock:
         logger.debug( "tick( %s )", self.counter )
         self.counter = self.counter + 1
         self.cpu.fetch()
+        
+        # ejecuto las interrupciones
+        self.cpu.irq.processInterruption()
 
     def run(self):
         logger.debug( "clock started" )

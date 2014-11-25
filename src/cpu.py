@@ -1,5 +1,4 @@
-import irq
-import interruption
+from interruption import *
 import logging
 
 logger = logging.getLogger(__name__)
@@ -17,20 +16,20 @@ class CPU:
         self.irq = aIRQ
     
     def fetch(self):
-        logger.debug( "fetch()" )
+        logger.debug( "fetch() started" )
 
         #levanto excepcion de start
         if (self.context == None):
             
-            logger.debug( "IRQ-Interrupcion start" )
-            self.irq.raiseInterruption( Interruption( StartInterruption() ) )
+            logger.debug( "start interruption" )
+            self.irq.raiseInterruption( Interruption( Start() ) )
             
         else:
         
             #si la instruccion se paso del tamanio del programa
             if (self.context.pc >= self.context.size ):
-                logger.debug( "IRQ-Interrupcion end" )
-                self.irq.raiseInterruption( Interruption( EndInterruption() ) )
+                logger.debug( "end interruption" )
+                self.irq.raiseInterruption( Interruption( End() ) )
             else:
                     
                 # obtengo la instruccion
@@ -38,11 +37,11 @@ class CPU:
                     
                 #si la instruccion es de entrada salida
                 if ( i.isIO() ):
-                    logger.debug( "IRQ-Interrupcion IO" )
-                    self.irq.raiseInterruption( Interruption( IOInterruption() ) )
+                    logger.debug( "IO interruption" )
+                    self.irq.raiseInterruption( Interruption( IO() ) )
                 else:
                     #ejecuto instruccion
-                    logger.debug( "ejecuto Instruccion" )
+                    logger.debug( "instruction execution" )
                     #actualizo pcb
                 
                 #debug: avanzo pcb de todas formas

@@ -17,7 +17,9 @@ class IRQ:
         self.scheduler = aScheduler
         
     def raiseInterruption(self, anInterruption):
+        logger.debug( "RAISE INTERRUPTION" )
         self.queue.insert( 0, anInterruption )
         
     def processInterruption(self):
-        self.queue.pop().run( self.scheduler, self.cpu )
+        if ( self.queue ):
+            self.queue.pop().run( self.scheduler, self.cpu )
