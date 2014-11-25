@@ -49,9 +49,9 @@ class CPU:
                 
         
     def getContext(self):
-        self.context
         logger.debug( "getContext()" )
+        return self.context
         
     def setContext(self, aPCB):
+        logger.debug( "setContext()" )
         self.context = aPCB
-        logger.debug( "setContext( PID %s )", self.context.pid )

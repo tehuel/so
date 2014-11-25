@@ -11,6 +11,7 @@ class Clock:
         self.cpu = aCPU
         
     def tick(self):
+        print ('------')
         logger.debug( "tick( %s )", self.counter )
         self.counter = self.counter + 1
         self.cpu.fetch()

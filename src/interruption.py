@@ -21,16 +21,20 @@ class Timeout:
     
     def run(self, aScheduler, aCPU):
         logger.debug( "running timeout interruption" )
+        aScheduler.add( aCPU.getContext() )
+        aCPU.setContext( aScheduler.get() )
 
 class End:
     
     def run(self, aScheduler, aCPU):
         logger.debug( "running end interruption" )
+        aCPU.setContext( aScheduler.get() )
 
 class IO:
     
     def run(self, aScheduler, aCPU):
         logger.debug( "running io interruption" )
+        aCPU.setContext( aScheduler.get() )
 
 if __name__ == "__main__":
     

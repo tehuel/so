@@ -11,4 +11,7 @@ class Scheduler:
         self.rpq.insert(0, aPCB)
 
     def get (self):
-        return self.rpq.pop()
+        if ( self.rpq ):
+            return self.rpq.pop()
+        else:
+            return None
