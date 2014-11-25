@@ -1,6 +1,6 @@
 # TODO
 
-- manejar cambios de pc en pc
+- manejar cambios de pc en cpu
     - aumentar pcb por cada instruccion ejecutada
     - controlar end
     - controlar timeout (cuando corresponda scheduler)
@@ -10,7 +10,8 @@
 - asignacion de memoria
     - asignacion continua con bloques
     - paginacion
-- filesystemdirectorios y archivos
+- filesystem
+- directorios y archivos
     - acceso mediante rutas
     - carga de programa como lista de bloques, con datos
 - dispositivos de entrada y salida como thread independientes
