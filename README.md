@@ -13,6 +13,7 @@
     - asignacion continua con bloques
     - paginacion
 - dispositivos de entrada y salida como thread independientes
+    - interrupcion debe saber donde encolar cada pcb
 - directorios y archivos
     - acceso mediante rutas
     - carga de programa como lista de bloques, con datos
@@ -20,10 +21,16 @@
     - cargable desde disco
     - guardable a disco (serializable)
         - definir formato de archivos y de datos
+- kernel.run / kernel.shutdown
+
 
 ## Opcionales
 
 - interfaz grafica
+- shell comunicable con filesystem
+    - ls
+    - mmkdir
+    - rm
 
 # IN PROGRESS
 
