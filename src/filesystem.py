@@ -76,10 +76,10 @@ class Directory:
         self.files[aFile.name] = aFile
         
     def getFile(self, aFileName):
-        if ( aFileName not in self.files):
-            return False
-        else:
+        if ( aFileName in self.files):
             return self.files[aFileName]
+        else:
+            return False
         
     def printContent(self):
         
@@ -102,18 +102,23 @@ class File:
         self.name = aFileName
 
 
-#algunas pruebas
-f1 = File("file.exe")
-f2 = File("file.bat")
-f3 = File("file.com")
-
-fs = Filesystem()
-fs.saveFile(f1, "a/path")
-fs.saveFile(f2, "a/path/inside")
-fs.saveFile(f1, "another/path")
-fs.saveFile(f3, "another")
-
-fs.printTree()
-
-# print ( fs.loadFile("a/path/virus.exe").name )
-
+if __name__ == "__main__":
+    
+    # logging.basicConfig(level=logging.DEBUG)
+    
+    #algunas pruebas
+    f1 = File("file.exe")
+    f2 = File("file.bat")
+    f3 = File("file.com")
+    
+    fs = Filesystem()
+    fs.saveFile(f1, "a/path")
+    fs.saveFile(f2, "a/path/inside")
+    fs.saveFile(f1, "another/path")
+    fs.saveFile(f3, "another")
+    
+    fs.printTree()
+    
+    print ( fs.loadFile("a/path/file.exe") )
+    print ( fs.loadFile("a/path/virus.exe") )
+    
