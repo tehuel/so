@@ -12,6 +12,7 @@ class PCB:
         self.size = size
         self.state = "READY"
         self.pc = 0
+        self.info = None
         logger.debug( "PCB Created. PID %s. Base %s. Size: %s", self.pid, self.base, self.size )
 
     def updateState( self, newState ):

@@ -23,37 +23,27 @@ class FIFO_Scheduler(Scheduler):
 
 class Priority_Scheduler(Scheduler):
     
-    def __init__(self):
-        self.rpq = {} # diccionario de pcbs
-        self.pri = [] # lista de tuplas ordenadas por prioridad
-    
     def add(self, aPCB, aPriority = 0):
-        #priorizo el PCB y lo agrego a la lista de priorizados
-        aPriorizedPCB = ( aPriority, aPCB.pid )
-        self.pri.append( aPriorizedPCB )
+        
+        # priorizo el pcb
+        # esto ya puede venir desde afuera
+        aPCB.info = aPriority
+        
+        #lo agrego a la lista
+        self.rpq.append(aPCB)
         
         #ordeno la lista de priorizados
-        self.pri = sorted( self.pri, reverse=True, key=lambda priorized: priorized[0] )
-        
-        # agrego el pcb al diccionario
-        self.rpq[aPCB.pid] = aPCB
-        
+        self.rpq = sorted( self.rpq, key=self.getPriority )
+
     def get(self):
-        
-        # de la lista de pids priorizados devuelvo el primero que tenga en el diccionario de pcbs
-        item = None
-        for i, j in self.pri:
-            
-            if ( j in self.rpq ):
-                item = self.rpq[j]
-                del self.rpq[j]
-                break
-                
-        return item
+        return self.rpq.pop()
         
     def kill (self, aPCB):
         # elimino el pid de la lista de pids priorizados
         pass
+    
+    def getPriority(self, aPCB):
+        return aPCB.info
 
 if __name__ == "__main__":
     
@@ -69,9 +59,8 @@ if __name__ == "__main__":
     sch.add( pcb.PCB(0, 1, 44), 1 )
     sch.add( pcb.PCB(0, 1, 55), 2 )
 
-    print sch.pri
     print sch.rpq
     
-    print ( sch.get() )
-    print ( sch.get() )
-    print ( sch.get() )
+    print ( sch.get().pid )
+    print ( sch.get().pid )
+    print ( sch.get().pid )
