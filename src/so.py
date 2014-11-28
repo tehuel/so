@@ -34,7 +34,7 @@ dm.disk.addProgram(prg2)
 
 console = Console()
 
-sch = Scheduler()
+sch = FIFO_Scheduler()
 
 irq = IRQ()
 
