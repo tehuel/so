@@ -1,11 +1,5 @@
 # TODO
 
-- scheduling
-    - FIFO
-    - Prioridad
-    - Round Robin (con quantum)
-        - FIFO
-        - Prioridad
 - simplificar cpu
 - cpu y clock como thread
 - charla entre cpu, irq, y clock
@@ -21,8 +15,8 @@
     - cargable desde disco
     - guardable a disco (serializable)
         - definir formato de archivos y de datos
+    - INODE
 - kernel.run / kernel.shutdown
-
 
 ## Opcionales
 
@@ -34,6 +28,12 @@
 
 # IN PROGRESS
 
+- scheduling
+    - FIFO
+    - Prioridad
+    - Round Robin (con quantum)
+        - FIFO
+        - Prioridad
 
 # DONE
 
