@@ -2,6 +2,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class FIFO_Policy:
     
     def add(self, **params):
@@ -13,6 +14,7 @@ class FIFO_Policy:
         
         logger.debug('PCB added to FIFO queue. ' + str(aPCB) )
         
+
 class PRIORITY_Policy:
     
     def add(self, **params):
@@ -26,20 +28,20 @@ class PRIORITY_Policy:
         
         logger.debug('PCB added to PRIORIZED queue. ' + str(aPCB) )
         
-        
     def getPriority(self, aPCB):
         # criterio de ordenacion
         return aPCB.priority
 
-
 class Scheduler:
     
-    def __init__(self, aPolicy=FIFO_Policy):
+    def __init__(self, aPolicy=FIFO_Policy, aQuantum=None):
         self.rpq = []   #listado de todos los pcbs
         self.policy = aPolicy()
+        self.quantum = aQuantum
         
         logger.debug('Scheduler Initialized')
         logger.debug( aPolicy )
+        if (self.quantum): logger.debug('Quantum: ' + str(self.quantum) )
 
     def add(self, aPCB, aPriority=0):
         return self.policy.add(pcb=aPCB, pri=aPriority, sche=self)
@@ -60,15 +62,15 @@ if __name__ == "__main__":
     
     logging.basicConfig(level=logging.DEBUG)
     
-    pcb1 = pcb.PCB(0,10,1)
-    pcb2 = pcb.PCB(0,10,2)
-    pcb3 = pcb.PCB(0,10,3)
-    pcb4 = pcb.PCB(0,10,4)
-    pcb5 = pcb.PCB(0,10,5)
+    pcb1 = pcb.PCB('PCB1',0,10,1)
+    pcb2 = pcb.PCB('PCB2',0,10,2)
+    pcb3 = pcb.PCB('PCB3',0,10,3)
+    pcb4 = pcb.PCB('PCB4',0,10,4)
+    pcb5 = pcb.PCB('PCB5',0,10,5)
 
-    print "-- TEST FIFO SCHEDULER --"
+    print "-- TEST SCHEDULER --"
     # FIFO Scheduler (default)
-    scheduler1 = Scheduler()
+    scheduler1 = Scheduler( FIFO_Policy, 10 )
     
     scheduler1.add( pcb1 )
     scheduler1.add( pcb2 )
@@ -82,21 +84,3 @@ if __name__ == "__main__":
     print scheduler1.get()
     print scheduler1.get()
     print scheduler1.get()
-
-    print "-- TEST PRIORITY SCHEDULER --"
-    # PRIORITY Scheduler
-    scheduler2 = Scheduler( PRIORITY_Policy )
-    
-    scheduler2.add( pcb1 )
-    scheduler2.add( pcb2, 10 )
-    scheduler2.add( pcb3 )
-    scheduler2.add( pcb4, 20 )
-    scheduler2.add( pcb5 )
-    
-    print scheduler2.get()
-    print scheduler2.get()
-    print scheduler2.get()
-    print scheduler2.get()
-    print scheduler2.get()
-    print scheduler2.get()
-
