@@ -44,15 +44,17 @@ class Scheduler:
         if (self.quantum): logger.debug('Quantum: ' + str(self.quantum) )
 
     def add(self, aPCB, aPriority=0):
-        return self.policy.add(pcb=aPCB, pri=aPriority, sche=self)
+        self.policy.add(pcb=aPCB, pri=aPriority, sche=self)
+        logger.debug(self.rpq)
         
     def get(self):
         # es el mismo get para todas las policies
+        logger.debug(self.rpq)
         if ( self.rpq ):
-            logger.debug('returned PCB from queue')
+            logger.info('returned PCB from queue')
             return self.rpq.pop()
         else:
-            logger.debug('queue is EMPTY')
+            logger.info('RPQ queue is EMPTY')
             return None
 
 

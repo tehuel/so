@@ -11,10 +11,12 @@ class CPU:
         self.mmu = aMemoryManager
         self.context = None
         self.irq = None
+        self.quantum = None
+        self.streak = 0
     
     def setIRQ(self, aIRQ):
         self.irq = aIRQ
-    
+
     def fetch(self):
         logger.debug( "fetch() started" )
 
@@ -40,7 +42,16 @@ class CPU:
                     logger.debug( "IO interruption" )
                     self.irq.raiseInterruption( Interruption( IO() ) )
                 else:
+                    
+                    # si la instruccion se paso del quantum
+                    if (self.quantum):
+                        if ( self.streak > self.quantum ):
+                            # interrupcion de timeout
+                            logger.info( " ------- TIMEOUT" )
+                            self.irq.raiseInterruption( Interruption( Timeout() ) )
+                    
                     #ejecuto instruccion
+                    self.streak += 1
                     logger.debug( "instruction execution" )
                     #actualizo pcb
                 
@@ -55,3 +66,4 @@ class CPU:
     def setContext(self, aPCB):
         logger.debug( "setContext()" )
         self.context = aPCB
+        self.streak = 0

@@ -10,12 +10,14 @@ class IRQ:
         self.scheduler = None
         self.queue = []
     
-    def setCPU(self, aCPU):
-        self.cpu = aCPU
-    
     def setScheduler(self, aScheduler):
         self.scheduler = aScheduler
         
+    def setCPU(self, aCPU):
+        self.cpu = aCPU
+        self.cpu.quantum = self.scheduler.quantum
+        logger.debug("Quantum set on CPU from Scheduler")
+    
     def raiseInterruption(self, anInterruption):
         logger.debug( "RAISE INTERRUPTION" )
         self.queue.insert( 0, anInterruption )

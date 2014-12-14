@@ -16,8 +16,8 @@ class Kernel:
         
         #initialize
         self.devicemanager.cpu.setIRQ(self.irq)
-        self.irq.setCPU(self.devicemanager.cpu)
         self.irq.setScheduler(self.scheduler)
+        self.irq.setCPU(self.devicemanager.cpu)
         
     def generatePID(self):
         self.lastPID += 1
