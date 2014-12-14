@@ -31,7 +31,7 @@ class Kernel:
         program = self.devicemanager.disk.getProgram( aProgramName )
         base = self.devicemanager.mmu.loadProgram( program )
         size = len(program.instructions)
-        aPCB = pcb.PCB(base, size, self.generatePID() )
+        aPCB = pcb.PCB(program.name, base, size, self.generatePID() )
         
         #agrego el pcb a la lista de pcbs
         self.scheduler.add( aPCB )

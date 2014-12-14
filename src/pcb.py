@@ -5,16 +5,23 @@ logger = logging.getLogger(__name__)
 class PCB:
     # es creado por el kernel al ejecutar un programa
 
-    def __init__( self, base, size, aPID ):
-        logger.debug( "init" )
-        self.pid = aPID
+    def __init__( self, name, base, size, aPID, priority = None ):
+        self.name = name
         self.base = base
         self.size = size
+        self.pid = aPID
         self.state = "READY"
         self.pc = 0
-        self.info = None
-        logger.debug( "PCB Created. PID %s. Base %s. Size: %s", self.pid, self.base, self.size )
-
+        self.priority = priority
+        logger.debug("PCB Created")
+        logger.debug(self)
+        
+    def __str__(self):
+        if (self.priority):
+            return "PCB PID: {0}. Priority: {1}. Name: {2}. Base: {3}. Size: {4}".format(self.pid, self.priority, self.name, self.base, self.size)
+        else:
+            return "PCB PID: {0}. Name: {1}. Base: {2}. Size: {3}".format(self.pid, self.name, self.base, self.size)
+        
     def updateState( self, newState ):
         logger.debug( "pcb.updateState())" )
         self.state = newState

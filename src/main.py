@@ -1,6 +1,6 @@
 import logging
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 from instruction import *
 from program import *
@@ -34,7 +34,7 @@ dm.disk.addProgram(prg2)
 
 console = Console()
 
-sch = FIFO_Scheduler()
+sch = Scheduler()
 
 irq = IRQ()
 
@@ -43,7 +43,8 @@ k = Kernel( dm, irq, sch, console )
 k.execute("PRG1")
 k.execute("PRG2")
 k.execute("PRG1")
+k.execute("PRG2")
 
-#dm.clock.run()
+dm.clock.run()
 
-dm.clock.tick()
+#dm.clock.tick()
