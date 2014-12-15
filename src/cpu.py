@@ -51,13 +51,16 @@ class CPU:
                             self.irq.raiseInterruption( Interruption( Timeout() ) )
                     
                     #ejecuto instruccion
+                    self.executeInstruction( i )
                     self.streak += 1
-                    logger.debug( "instruction execution" )
-                    #actualizo pcb
-                
+                    logger.debug( "Current CPU streak: " + str(self.streak) )
+                    
                 #debug: avanzo pcb de todas formas
                 self.context.updatePC()
-                
+    
+    def executeInstruction(self, anInstruction ):
+        logger.debug( "Instruction executed" )
+        print anInstruction
         
     def getContext(self):
         logger.debug( "getContext()" )
