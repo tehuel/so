@@ -6,9 +6,12 @@ class Memory:
     # guarda una lista de instrucciones
 
     def __init__(self, memorySize):
+        self.memoryCells = {}
+        self.memorySize = memorySize
+        
+        # inicializo todas las celdas de memoria
         memoryCells = {}
         cell = 0
-        # inicializo todas las celdas de memoria
         while ( cell <= memorySize ):
             memoryCells[cell] = None
             cell += 1 
