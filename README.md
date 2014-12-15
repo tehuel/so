@@ -11,6 +11,7 @@
 - kernel.run / kernel.shutdown
 - cpu y clock como thread
 - simplificar cpu
+- ejecutar instrucciones de IO
 - dispositivos de entrada y salida como thread independientes
     - interrupcion debe saber donde encolar cada pcb
 
@@ -29,11 +30,6 @@
 
 # IN PROGRESS
 
-- scheduling
-    - Round Robin (con quantum)
-        - FIFO
-        - Prioridad
-
 # DONE
 
 - impementar todas las interupciones
@@ -45,3 +41,4 @@
 - scheduling
     - FIFO
     - Prioridad
+    - Round Robin (con quantum)
