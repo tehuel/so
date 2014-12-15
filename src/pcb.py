@@ -15,8 +15,8 @@ class PCB:
         self.priority = aPriority
         logger.debug( "PCB Created. " + str(self) )
 
-    def __str__(self):
-        string = "PID: {0}. Name: {1}. Base: {2}. Size: {3}. PC:{4}.".format(self.pid, self.name, self.base, self.size, self.pc)
+    def __repr__(self):
+        string = "PCB(pid:{0} name:{1} pc:{4})".format(self.pid, self.name, self.base, self.size, self.pc)
         if (self.priority):
             string = string + " Priority: {0}.".format(self.priority)
             

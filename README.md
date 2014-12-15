@@ -2,9 +2,6 @@
 
 - charla entre cpu, irq, y clock
 - ejecutar realmente las instrucciones
-- asignacion de memoria
-    - asignacion continua con bloques
-    - paginacion
 - directorios y archivos
     - acceso mediante rutas
     - carga de programa como lista de bloques, con datos
@@ -29,6 +26,10 @@
     - rm
 
 # IN PROGRESS
+
+- asignacion de memoria
+    - asignacion continua con bloques
+    - paginacion
 
 # DONE
 

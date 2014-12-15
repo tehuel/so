@@ -4,7 +4,7 @@ class Instruction:
         self.text = aText
         self.io = isIOInstruction
         
-    def __str__(self):
+    def __repr__(self):
         if ( self.isIO() ):
             return self.text + "<IO>"
         else:
