@@ -15,9 +15,9 @@ class Memory:
         self.memoryCells = memoryCells
 
     def read(self, aCellNumber):
-        logger.debug("read [%s]: %s", aCellNumber, self.memoryCells[ aCellNumber ].text)
+        logger.debug("read [%s]: %s", aCellNumber, self.memoryCells[ aCellNumber ])
         return self.memoryCells[ aCellNumber ]
 
     def write(self, aCellNumber, anInstruction):
         self.memoryCells[aCellNumber] = anInstruction
-        logger.debug("written [%s]: %s", aCellNumber, anInstruction.text)
+        logger.debug("written [%s]: %s", aCellNumber, anInstruction)

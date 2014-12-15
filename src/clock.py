@@ -22,5 +22,5 @@ class Clock:
     def run(self):
         logger.debug( "clock started" )
         while ( True ):
-            time.sleep(3)
+            time.sleep(1)
             self.tick()

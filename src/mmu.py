@@ -15,7 +15,7 @@ class MMU:
         # devuelve posicion inicial en memoria
         self.initialPosition = self.lastPosition
         
-        logger.info( "Load program %s ", aProgram.name )
+        logger.debug( "Load program %s ", aProgram.name )
         
         for instruction in aProgram.instructions:
             logger.debug( "write to memory( %s )", self.lastPosition)

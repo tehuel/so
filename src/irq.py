@@ -19,8 +19,8 @@ class IRQ:
         logger.debug("Quantum set on CPU from Scheduler")
     
     def raiseInterruption(self, anInterruption):
-        logger.debug( "RAISE INTERRUPTION" )
         self.queue.insert( 0, anInterruption )
+        logger.debug( "New Interruption Raised" )
         
     def processInterruption(self):
         if ( self.queue ):

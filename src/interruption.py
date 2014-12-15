@@ -7,6 +7,7 @@ class Interruption:
     
     def __init__(self, anInterruptionType):
         self.interruptionType = anInterruptionType
+        logger.debug( "Type: %s", self.interruptionType )
 
     def run(self, aScheduler, aCPU):
         self.interruptionType.run( aScheduler, aCPU)

@@ -59,7 +59,7 @@ class CPU:
                 self.context.updatePC()
     
     def executeInstruction(self, anInstruction ):
-        logger.debug( "Instruction executed" )
+        logger.debug( "Instruction Execution Output:" )
         print anInstruction
         
     def getContext(self):

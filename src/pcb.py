@@ -13,13 +13,14 @@ class PCB:
         self.state = "READY"
         self.pc = 0
         self.priority = aPriority
-        logger.debug( str(self) )
+        logger.debug( "PCB Created. " + str(self) )
 
     def __str__(self):
+        string = "PID: {0}. Name: {1}. Base: {2}. Size: {3}. PC:{4}.".format(self.pid, self.name, self.base, self.size, self.pc)
         if (self.priority):
-            return "PID: {0}. Priority: {1}. Name: {2}. Base: {3}. Size: {4}".format(self.pid, self.priority, self.name, self.base, self.size)
-        else:
-            return "PID: {0}. Name: {1}. Base: {2}. Size: {3}".format(self.pid, self.name, self.base, self.size)
+            string = string + " Priority: {0}.".format(self.priority)
+            
+        return string
         
     def updateState( self, newState ):
         logger.debug( "pcb.updateState())" )
