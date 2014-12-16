@@ -6,21 +6,22 @@ class Memory:
     # guarda una lista de instrucciones
 
     def __init__(self, memorySize):
-        self.memoryCells = {}
-        self.memorySize = memorySize
+        self.cells = {}
+        self.size = memorySize
         
-        # inicializo todas las celdas de memoria
-        memoryCells = {}
+        # inicializo (None) todas las celdas de memoria
         cell = 0
-        while ( cell <= memorySize ):
-            memoryCells[cell] = None
+        while ( cell <= self.size ):
+            self.cells[cell] = None
             cell += 1 
-        self.memoryCells = memoryCells
+
+    def __repr__(self):
+        return "{0} Cells\n{1}".format(self.size, self.cells)
 
     def read(self, aCellNumber):
-        logger.debug("read [%s]: %s", aCellNumber, self.memoryCells[ aCellNumber ])
-        return self.memoryCells[ aCellNumber ]
+        logger.debug("read [%s]: %s", aCellNumber, self.cells[ aCellNumber ])
+        return self.cells[ aCellNumber ]
 
     def write(self, aCellNumber, anInstruction):
-        self.memoryCells[aCellNumber] = anInstruction
+        self.cells[aCellNumber] = anInstruction
         logger.debug("written [%s]: %s", aCellNumber, anInstruction)
