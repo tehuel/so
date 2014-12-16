@@ -51,10 +51,10 @@ class Scheduler:
         # es el mismo get para todas las policies
         logger.debug(self.rpq)
         if ( self.rpq ):
-            logger.info('returned PCB from queue')
+            logger.debug('returned PCB from queue')
             return self.rpq.pop()
         else:
-            logger.info('RPQ queue is EMPTY')
+            logger.debug('RPQ queue is EMPTY')
             return None
 
 

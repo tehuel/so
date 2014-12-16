@@ -11,12 +11,15 @@ class Clock:
         self.cpu = aCPU
         
     def tick(self):
+        # inicio ciclo
         print ('------')
         logger.debug( "tick( %s )", self.counter )
         self.counter = self.counter + 1
+        
+        # ejecuto fetch de cpu
         self.cpu.fetch()
         
-        # ejecuto las interrupciones
+        # ejecuto una de las interrupciones
         self.cpu.irq.processInterruption()
 
     def run(self):

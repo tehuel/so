@@ -1,50 +1,31 @@
+import startup
+from devicemanager import *
+from kernel import *
+
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
-from instruction import *
-from program import *
-from console import *
-from kernel import *
-from irq import *
-from scheduler import *
-from pcb import *
-from devicemanager import *
 
-insa = Instruction("A")
-insb = Instruction("B", True)
-insc = Instruction("C")
-
-prg1 = Program( "PRG1" )
-prg1.addInstruction( insa )
-prg1.addInstruction( insb )
-prg1.addInstruction( insc )
-prg1.addInstruction( insb )
-prg1.addInstruction( insa )
-
-prg2 = Program( "PRG2" )
-prg2.addInstruction( insb )
-prg2.addInstruction( insb )
-prg2.addInstruction( insb )
-prg2.addInstruction( insc )
-
+#creo todos los dispositivos
 dm = DeviceManager()
+
+# genero la lista de programas
+prg1 = startup.generateProgram( "PRG1", 5 )
+prg2 = startup.generateProgram( "PRG2", 10 )
+
+#agrego los programas al disco
 dm.disk.addProgram(prg1)
 dm.disk.addProgram(prg2)
 
-console = Console()
+# creo un kernel con sus dispositivos
+k = Kernel( dm )
 
-sch = Scheduler()
-
-irq = IRQ()
-
-k = Kernel( dm, irq, sch, console )
-
+# ejecuto varios programas
 k.execute("PRG1")
 k.execute("PRG2")
 k.execute("PRG1")
 k.execute("PRG2")
 
+# inicio el clock del procesador
 dm.clock.run()
-
-#dm.clock.tick()

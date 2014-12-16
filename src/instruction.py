@@ -1,7 +1,7 @@
 class Instruction:
 
     def __init__(self, aText, isIOInstruction = False):
-        self.text = aText
+        self.text = str(aText)
         self.io = isIOInstruction
         
     def __repr__(self):

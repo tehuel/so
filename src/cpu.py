@@ -23,14 +23,14 @@ class CPU:
         #levanto excepcion de start
         if (self.context == None):
             
-            logger.debug( "start interruption" )
+            logger.info( "start interruption" )
             self.irq.raiseInterruption( Interruption( Start() ) )
             
         else:
         
             #si la instruccion se paso del tamanio del programa
             if (self.context.pc >= self.context.size ):
-                logger.debug( "end interruption" )
+                logger.info( "end interruption" )
                 self.irq.raiseInterruption( Interruption( End() ) )
             else:
                     
@@ -47,7 +47,7 @@ class CPU:
                     if (self.quantum):
                         if ( self.streak > self.quantum ):
                             # interrupcion de timeout
-                            logger.info( " ------- TIMEOUT" )
+                            logger.info( "TIMEOUT" )
                             self.irq.raiseInterruption( Interruption( Timeout() ) )
                     
                     #ejecuto instruccion
@@ -59,7 +59,7 @@ class CPU:
                 self.context.updatePC()
     
     def executeInstruction(self, anInstruction ):
-        logger.debug( "Instruction Execution Output:" )
+        logger.info( "Output:" )
         print anInstruction
         
     def getContext(self):

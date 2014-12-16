@@ -1,3 +1,5 @@
+from irq import *
+from scheduler import *
 import pcb
 
 import logging
@@ -7,13 +9,13 @@ logger = logging.getLogger(__name__)
 
 class Kernel:
 
-    def __init__(self, aDeviceManager, aIRQ, aScheduler, aConsole):
+    def __init__(self, aDeviceManager):
         self.lastPID = 0
         self.devicemanager = aDeviceManager
-        self.irq = aIRQ
-        self.scheduler = aScheduler
-        self.console = aConsole
-        
+
+        self.irq = IRQ()
+        self.scheduler = Scheduler()
+
         #initialize
         self.devicemanager.cpu.setIRQ(self.irq)
         self.irq.setScheduler(self.scheduler)
